@@ -1,18 +1,16 @@
 package seguimientos.laboratorio_5;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class BST {
 
     private Node root;
+    private int max;
 
     public void addInOrder(ArrayList<String> names) {
         root = new Node(null);
         root.addInOrder(names);
     }
-
-
 
     public void add(Node node) {
         if (root == null) {
@@ -79,17 +77,21 @@ public class BST {
     }
 
     public void reverseOrder() {
-        reverseOrder(root);
+        System.out.println("Lista en reversa: ");
+        reverseOrder(root, 0);
+        System.out.println("\nMaxima profundidad: " + max);
     }
 
-    
-    private void reverseOrder(Node current) {
+    private void reverseOrder(Node current, int count) {
         if (current == null) {
             return;
         }
-        reverseOrder(current.getRight());
-        System.out.print("," + current.getKey());
-        reverseOrder(current.getLeft());
+        count++;
+        if (count > max)
+            max = count;
+        reverseOrder(current.getRight(), count);
+        System.out.print(current.getKey() + ",");
+        reverseOrder(current.getLeft(), count);
     }
 
     public Node search(String goal) {
