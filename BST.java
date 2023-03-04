@@ -98,11 +98,11 @@ public class BST {
         return search(root, goal);
     }
     
-    public static int height() {
+    public int height() {
         return getMax(root, 0);
     }
     
-    public static int getHeight(Node current, int count){
+    public int getHeight(Node current, int count){
         if(current == null){
             return count;
         }
