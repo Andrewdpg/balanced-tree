@@ -99,10 +99,10 @@ public class BST {
     }
     
     public int height() {
-        return getMax(root, 0);
+        return getHeight(root, 0);
     }
     
-    public int getHeight(Node current, int count){
+    private int getHeight(Node current, int count){
         if(current == null){
             return count;
         }
