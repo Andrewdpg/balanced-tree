@@ -106,8 +106,8 @@ public class BST {
         if(current == null){
             return count;
         }
-        int left = getMax(current.left, count+1);
-        int right = getMax(current.right, count+1);
+        int left = getHeight(current.left, count+1);
+        int right = getHeight(current.right, count+1);
         return left <right?right:left;
     }
 
