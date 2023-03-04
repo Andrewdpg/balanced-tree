@@ -97,6 +97,19 @@ public class BST {
     public Node search(String goal) {
         return search(root, goal);
     }
+    
+    public static int height() {
+        return getMax(root, 0);
+    }
+    
+    public static int getHeight(Node current, int count){
+        if(current == null){
+            return count;
+        }
+        int left = getMax(current.left, count+1);
+        int right = getMax(current.right, count+1);
+        return left <right?right:left;
+    }
 
     private Node search(Node current, String goal) {
         if (current == null) {
